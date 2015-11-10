@@ -9,21 +9,21 @@ import android.util.Log;
 import de.greenrobot.event.EventBus;
 import de.greenrobot.event.Subscribe;
 import ru.katakin.sample.Constants;
-import ru.katakin.sample.util.GoogleServices;
+import ru.katakin.sample.preferences.AppPreferences;
 
 public class BaseActivity extends AppCompatActivity {
 
     protected EventBus bus;
-    protected GoogleServices google;
     protected int versionCode;
+    protected AppPreferences pref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bus = EventBus.getDefault();
-        google = new GoogleServices();
 
         versionCode = getAppVersionCode();
+        pref = AppPreferences.getInstance(this);
     }
 
     @Override

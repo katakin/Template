@@ -4,10 +4,15 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
 
+import java.util.Date;
+
+import ru.katakin.sample.util.Parser;
+
 public class AppPreferences {
 
     private final String PROPERTY_REG_ID = "registration_id";
-    private final String PROPERTY_APP_VERSION = "appVersion";
+    private final String LAST_REG_DATE = "reg_date";
+    private final String PROPERTY_APP_VERSION = "app_version";
 
     private SharedPreferences sharedPreferences;
     private static AppPreferences preferences;
@@ -48,6 +53,14 @@ public class AppPreferences {
             editor.putBoolean(key, value);
         }
         editor.apply();
+    }
+
+    public Date getRegDate() {
+        return Parser.stringToDate(sharedPreferences.getString(LAST_REG_DATE, ""));
+    }
+
+    public void setRegDate(Date today) {
+        saveStringPreference(LAST_REG_DATE, Parser.dateToString(today));
     }
 
     public String getRegistrationId() {
