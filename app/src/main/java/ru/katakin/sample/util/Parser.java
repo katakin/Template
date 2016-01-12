@@ -23,4 +23,12 @@ public class Parser {
             return null;
         }
     }
+
+    public static long stringToLong(String numbers) {
+        try {
+            return Long.parseLong(numbers);
+        } catch (NumberFormatException e) {
+            return 0;
+        }
+    }
 }

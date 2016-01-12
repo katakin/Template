@@ -34,11 +34,11 @@ public class MyGcmListenerService extends GcmListenerService {
         Log.d(Constants.LOG_TAG, "From: " + from);
         Log.d(Constants.LOG_TAG, "Message: " + message);
 
-        if (from.startsWith("/topics/")) {
+//        if (from.startsWith("/topics/")) {
             // message received from some topic.
-        } else {
+//        } else {
             // normal downstream message.
-        }
+//        }
 
         sendNotification(message);
     }
@@ -55,9 +55,8 @@ public class MyGcmListenerService extends GcmListenerService {
 
         Uri defaultSoundUri= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
-//                .setSmallIcon(R.drawable.ic_stat_ic_notification)
-                .setSmallIcon(R.drawable.common_signin_btn_icon_dark)
-                .setContentTitle("GCM Message")
+                .setSmallIcon(getNotificationIcon())
+                .setContentTitle("Sample GCM Message")
                 .setContentText(message)
                 .setAutoCancel(true)
                 .setSound(defaultSoundUri)
@@ -66,5 +65,10 @@ public class MyGcmListenerService extends GcmListenerService {
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
         notificationManager.notify(0 /* ID of notification */, notificationBuilder.build());
+    }
+
+    private int getNotificationIcon() {
+        boolean useWhiteIcon = (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP);
+        return useWhiteIcon ? R.drawable.ic_notification_white_24dp : R.drawable.ic_notification_black_24dp;
     }
 }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>>
+    <style name="thinFont">
+        <item name="android:fontFamily">sans-serif-thin</item>
+    </style>
+
+    <style name="condensedFont">
+        <item name="android:fontFamily">sans-serif-condensed</item>
+    </style>
+
+    <style name="lightFont">
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+</resources>
