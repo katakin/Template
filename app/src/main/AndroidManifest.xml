@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="ru.katakin.sample">
+    package="ru.katakin.template">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -23,19 +23,19 @@
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 
     <permission
-        android:name="ru.katakin.sample.permission.C2D_MESSAGE"
+        android:name="ru.katakin.template.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
 
-    <uses-permission android:name="ru.katakin.sample.permission.C2D_MESSAGE" />
+    <uses-permission android:name="ru.katakin.template.permission.C2D_MESSAGE" />
 
     <application
-        android:name=".MyApplication"
+        android:name="ru.katakin.template.MyApplication"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.SplashScreen"
+            android:name="ru.katakin.template.ui.SplashScreen"
             android:label="@string/app_name"
             android:theme="@style/FullscreenTheme">
             <intent-filter>
@@ -45,7 +45,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.MainActivity"
+            android:name="ru.katakin.template.ui.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
 
@@ -57,26 +57,26 @@
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
                 <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
 
-                <category android:name="ru.katakin.sample" />
+                <category android:name="ru.katakin.template" />
             </intent-filter>
         </receiver>
 
         <service
-            android:name=".gcm.MyGcmListenerService"
+            android:name="ru.katakin.template.gcm.MyGcmListenerService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
             </intent-filter>
         </service>
         <service
-            android:name=".gcm.MyInstanceIDListenerService"
+            android:name="ru.katakin.template.gcm.MyInstanceIDListenerService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.android.gms.iid.InstanceID" />
             </intent-filter>
         </service>
         <service
-            android:name=".gcm.RegistrationIntentService"
+            android:name="ru.katakin.template.gcm.RegistrationIntentService"
             android:exported="false" />
 
     </application>

@@ -31,7 +31,7 @@
             android:ellipsize="none"
             android:maxLines="1"
             android:singleLine="true"/>
-        <ru.katakin.sample.util.AutoResizeTextView
+        <ru.katakin.template.util.AutoResizeTextView
             android:id="@+id/city_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
